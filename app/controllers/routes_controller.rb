@@ -63,6 +63,23 @@ class RoutesController < ApplicationController
 		end
 	end
 	send_data(csv_string, :filename => "#{routeName}.csv", :type=>"text/csv")
+  end
+
+ def downloadCSVForRunSheets 
+	routeHash = Hash.new
+        @routes = Route.all
+	csv_string = CSV.generate do |csv|
+		csv<<["Seq","Status","street","#","Name","Service Notes","ID", "Route"]
+
+        	@routes.each do |way|
+        		routeName=way.route_name;
+			routeHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED') ")
+			routeHash[routeName].each do |subs|
+				csv<<[subs.run_sequence, subs.subscription_status,subs.street+",College station, Texas", subs.qty, subs.last_name,subs.subscription_notes,subs.subscription_id, routeName]
+			end
+		end
+	end
+	send_data(csv_string, :filename => "consolidated_routeMap.csv", :type=>"text/csv")
   end	
 
   # GET /routes/1

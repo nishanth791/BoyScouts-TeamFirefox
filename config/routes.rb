@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/routes/generatePDFForRunSheets"
   get "routes/downloadPDFForRunSheets"	
   get "routes/generateCSVForRunSheets"	
+  get "/routes/downloadCSVForRunSheets"
   resources :runs
 
   resources :members
