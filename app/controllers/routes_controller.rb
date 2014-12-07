@@ -38,7 +38,7 @@ class RoutesController < ApplicationController
     @routes = Route.find_by_sql("SELECT * from routes ORDER BY print_sequence ASC");
     @routes.each do |way|
         routeName=way.route_name;
-	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED') ORDER BY subscriptions.run_sequence ASC ")
+	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED') ORDER BY subscriptions.run_sequence ASC ")
     end
     return @routesHash
 
@@ -55,7 +55,7 @@ class RoutesController < ApplicationController
         routeName=route;
 	puts "RouteName from CSV Generation = #{routeName}"
 	routeHash = Hash.new
-	routeHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED') ")
+	routeHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED') ")
 	csv_string = CSV.generate do |csv|
 		csv<<["Seq","Status","street","#","Name","Service Notes","ID"]
 		routeHash[routeName].each do |subs|
@@ -67,15 +67,16 @@ class RoutesController < ApplicationController
 
  def downloadCSVForRunSheets 
 	routeHash = Hash.new
-        @routes = Route.all
+        @routes = Route.find_by_sql("SELECT * from routes ORDER BY print_sequence ASC");
+
 	csv_string = CSV.generate do |csv|
-		csv<<["Seq","Status","street","#","Name","Service Notes","ID", "Route"]
+		csv<<["SubscriptionSt", "ID", "Route", "RunSequence","Addr","City","State","Zip","Qty", "ServiceNotes", "Last", "First"]
 
         	@routes.each do |way|
         		routeName=way.route_name;
-			routeHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED') ")
+			routeHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED') ORDER BY subscriptions.run_sequence ASC ")
 			routeHash[routeName].each do |subs|
-				csv<<[subs.run_sequence, subs.subscription_status,subs.street+",College station, Texas", subs.qty, subs.last_name,subs.subscription_notes,subs.subscription_id, routeName]
+				csv<<[subs.subscription_status, subs.subscription_id, routeName, subs.run_sequence, "#{subs.number}" + " " +subs.street, subs.city, subs.state, subs.zip, subs.qty, subs.subscription_notes,subs.last_name, subs.first_name]
 			end
 		end
 	end
