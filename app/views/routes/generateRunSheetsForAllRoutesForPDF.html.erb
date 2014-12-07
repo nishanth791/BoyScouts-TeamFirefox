@@ -35,13 +35,13 @@
   <tbody>
     <% @routesHash[key].each do |subs| %>
       <tr>
-        <td height="12px" style="font-size:8px;"><%= subs.run_sequence %></td>
-        <td height="12px" style="font-size:8px;"><%= subs.subscription_status %></td>
-        <td height="12px" style="font-size:8px;"><%= subs.street %></td>
-        <td height="12px" style="font-size:8px;"><%= subs.qty %></td>
-        <td height="12px" style="font-size:8px;"><%= subs.last_name%></td>
-        <td height="12px" style="font-size:8px;"><%= subs.subscription_notes%></td>
-        <td height="12px" style="font-size:8px;"><%= subs.subscription_id%></td>
+        <td height="12px" style="font-size:12px;"><%= subs.run_sequence %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.subscription_status %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.street %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.qty %></td>
+        <td height="12px" style="font-size:12px;"><%= subs.last_name%></td>
+        <td height="12px" style="font-size:12px;"><%= subs.subscription_notes%></td>
+        <td height="12px" style="font-size:12px;"><%= subs.subscription_id%></td>
       </tr>
       <% count=count+1 %>		
     <% end %>
@@ -50,7 +50,7 @@
 </table></div>
 <p class="p1"><u>Morning end time :</u> &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    <u>Evening end time :</u><br><u>Morning Scouts(List on back)</u> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    <u>Evening Scouts(List on back)</u></p>
 </p>
-<div class="page" style="page-break-before:always float:none overflow:visibility display:table clear:both"></
+<div class="page" style="page-break-before:always float:none overflow:visibility display:table clear:both"></div>
 
 <%end%>
 
