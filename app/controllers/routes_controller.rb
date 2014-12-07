@@ -16,7 +16,7 @@ class RoutesController < ApplicationController
     @routes = Route.all
     @routes.each do |way|
         routeName=way.route_name;
-	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes,  subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED') ")
+	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes,  subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED' ORDER BY subscriptions.run_sequence ASC) ")
     end
     return @routesHash
   end
@@ -38,7 +38,7 @@ class RoutesController < ApplicationController
     @routes = Route.all
     @routes.each do |way|
         routeName=way.route_name;
-	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED') ")
+	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and subscription_status <> 'EXPIRED' ORDER BY subscriptions.run_sequence ASC) ")
     end
     return @routesHash
 
