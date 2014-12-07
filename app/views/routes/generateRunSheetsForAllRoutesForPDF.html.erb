@@ -37,13 +37,13 @@
   <tbody>
     <% @routesHash[key].each do |subs| %>
       <tr>
-        <td><%= subs.run_sequence %></td>
-        <td><%= subs.subscription_status %></td>
-        <td><%= subs.street %></td>
-        <td><%= subs.qty %></td>
-        <td><%= subs.last_name%></td>
-        <td><%= subs.subscription_notes%></td>
-        <td><%= subs.subscription_id%></td>
+        <td width="50%"><%= subs.run_sequence %></td>
+        <td width="50%"><%= subs.subscription_status %></td>
+        <td width="50%"><%= subs.street %></td>
+        <td width="50%"><%= subs.qty %></td>
+        <td width="50%"><%= subs.last_name%></td>
+        <td width="50%"><%= subs.subscription_notes%></td>
+        <td width="50%"><%= subs.subscription_id%></td>
       </tr>
       <% count=count+1 %>		
     <% end %>
