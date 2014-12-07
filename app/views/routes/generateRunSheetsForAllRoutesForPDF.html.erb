@@ -15,7 +15,7 @@
 </head>
 <h1><h1>
 <% @routesHash.each_key do |key|%>
-<h1 style="font-size:14px">Troop 1300 - Flag Run Sheets<h1>
+<h1 style="font-size:18px">Troop 1300 - Flag Run Sheets<h1>
 <div>
 <% count=0 %>
 <p class="p1">Route :<%= key%>    </p>
@@ -37,13 +37,13 @@
   <tbody>
     <% @routesHash[key].each do |subs| %>
       <tr>
-        <td height="50%" style="font-size:8px;"><%= subs.run_sequence %></td>
-        <td height="50%" style="font-size:8px;"><%= subs.subscription_status %></td>
-        <td height="50%" style="font-size:8px;"><%= subs.street %></td>
-        <td height="50%" style="font-size:8px;"><%= subs.qty %></td>
-        <td height="50%" style="font-size:8px;"><%= subs.last_name%></td>
-        <td height="50%" style="font-size:8px;"><%= subs.subscription_notes%></td>
-        <td height="50%" style="font-size:8px;"><%= subs.subscription_id%></td>
+        <td height="10px" style="font-size:8px;"><%= subs.run_sequence %></td>
+        <td height="10px" style="font-size:8px;"><%= subs.subscription_status %></td>
+        <td height="10px" style="font-size:8px;"><%= subs.street %></td>
+        <td height="10px" style="font-size:8px;"><%= subs.qty %></td>
+        <td height="10px" style="font-size:8px;"><%= subs.last_name%></td>
+        <td height="10px" style="font-size:8px;"><%= subs.subscription_notes%></td>
+        <td height="10px" style="font-size:8px;"><%= subs.subscription_id%></td>
       </tr>
       <% count=count+1 %>		
     <% end %>
