@@ -28,7 +28,7 @@ class RoutesController < ApplicationController
 	puts route
         @routesHash = Hash.new
         routeName=route;
-	@routesHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes , subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED') ")
+	@routesHash[routeName] = Subscription.find_by_sql("SELECT * FROM routes , subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED' ORDER BY subscriptions.run_sequence ASC) ")
     return @routesHash
   end
 
