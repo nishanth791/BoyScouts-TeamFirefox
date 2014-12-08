@@ -6,6 +6,7 @@ class Route < ActiveRecord::Base
         if new_record?
                 maxId = Route.find_by_sql("SELECT route_id FROM routes ORDER BY route_id DESC limit 1").first.try(:route_id)
                 self.route_id = maxId+1
+                self.route_name = "Unassigned"
         end
   end
  
