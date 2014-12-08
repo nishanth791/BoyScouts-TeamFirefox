@@ -11,7 +11,7 @@ class Run < ActiveRecord::Base
   
   after_initialize do
         if new_record?
-                maxId = Run.find_by_sql("SELECT run_id FROM runs ORDER BY run_idDESC limit 1").first.try(:run_id)
+                maxId = Run.find_by_sql("SELECT run_id FROM runs ORDER BY run_id DESC limit 1").first.try(:run_id)
                 self.run_id = maxId+1
         end
   end
@@ -22,7 +22,7 @@ rails_admin do
         field :run_id do
                 label "Run ID"
                 read_only true
-                help 'Required'
+                help ''
         end
         field :route do
                 label "Route"
@@ -36,7 +36,7 @@ rails_admin do
                 label "Run date"
                 help 'Required'
 	end
-        field :time_taken do
+        field :time_taken, :date do
                 label "Time taken"
                 help 'Required'
 	end
@@ -54,7 +54,7 @@ rails_admin do
         field :run_id do
                 label "Run ID"
                 read_only true
-                help 'Required'
+                help ''
         end
         field :route do
                 label "Route"
@@ -68,7 +68,7 @@ rails_admin do
                 label "Run date"
                 help 'Required'
 	end
-        field :time_taken do
+        field :time_taken, :date do
                 label "Time taken"
                 help 'Required'
 	end
@@ -86,7 +86,7 @@ rails_admin do
         field :run_id do
                 label "Run ID"
                 read_only true
-                help 'Required'
+                help ''
         end
         field :route do
                 label "Route"
@@ -100,7 +100,7 @@ rails_admin do
                 label "Run date"
                 help 'Required'
 	end
-        field :time_taken do
+        field :time_taken, :date do
                 label "Time taken"
                 help 'Required'
 	end
