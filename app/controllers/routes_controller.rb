@@ -13,7 +13,7 @@ class RoutesController < ApplicationController
   #This method generates Run Sheets to be displayed on webpage. This mehtod is called when generate Run sheets method is invoked.
   def showRunSheets
     @routesHash = Hash.new
-    @routes = Route.find_by_sql("SELECT * from routes ORDER BY print_sequence ASC");
+    @routes = Route.find_by_sql("SELECT * from routes where print_sequence < 100 ORDER BY print_sequence ASC");
     @routes.each do |way|
         routeName=way.route_name;
 	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes,  subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED') ORDER BY subscriptions.run_sequence ASC ")
@@ -35,7 +35,7 @@ class RoutesController < ApplicationController
   #This method generates HTML for all Routes at once. Whihc is then used to generate PDFs. only difference between this method and showRunSheets is their views.
   def generateRunSheetsForAllRoutesForPDF	 
     @routesHash = Hash.new
-    @routes = Route.find_by_sql("SELECT * from routes ORDER BY print_sequence ASC");
+    @routes = Route.find_by_sql("SELECT * from routes where print_sequence < 100 ORDER BY print_sequence ASC");
     @routes.each do |way|
         routeName=way.route_name;
 	@routesHash[way.route_name] = Subscription.find_by_sql("SELECT * FROM routes, subscriptions WHERE ( routes.route_id = subscriptions.route_id and route_name='#{routeName}' and routes.print_sequence < 100 and subscription_status <> 'EXPIRED') ORDER BY subscriptions.run_sequence ASC ")
@@ -67,7 +67,7 @@ class RoutesController < ApplicationController
 
  def downloadCSVForRunSheets 
 	routeHash = Hash.new
-        @routes = Route.find_by_sql("SELECT * from routes ORDER BY print_sequence ASC");
+        @routes = Route.find_by_sql("SELECT * from routes where print_sequence < 100 ORDER BY print_sequence ASC");
 
 	csv_string = CSV.generate do |csv|
 		csv<<["SubscriptionSt", "ID", "Route", "RunSequence","Addr","City","State","Zip","Qty", "ServiceNotes", "Last", "First"]
