@@ -4,7 +4,7 @@ class Route < ActiveRecord::Base
   validates :print_sequence, :presence => true
   after_initialize do
         if new_record?
-                maxId = Route.find_by_sql("SELECT route_id FROM route ORDER BY route_id DESC limit 1").first.try(:route_id)
+                maxId = Route.find_by_sql("SELECT route_id FROM routes ORDER BY route_id DESC limit 1").first.try(:route_id)
                 self.route_id = maxId+1
         end
   end
