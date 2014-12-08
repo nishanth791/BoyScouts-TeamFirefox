@@ -32,11 +32,11 @@ rails_admin do
                 label "Member"
                 help 'Required'
 	end
-        field :run_date do
+        field :run_date, :date do
                 label "Run date"
                 help 'Required'
 	end
-        field :time_taken, :date do
+        field :time_taken do
                 label "Time taken"
                 help 'Required'
 	end
@@ -64,11 +64,11 @@ rails_admin do
                 label "Member"
                 help 'Required'
 	end
-        field :run_date do
+        field :run_date, :date do
                 label "Run date"
                 help 'Required'
 	end
-        field :time_taken, :date do
+        field :time_taken do
                 label "Time taken"
                 help 'Required'
 	end
@@ -96,11 +96,11 @@ rails_admin do
                 label "Member"
                 help 'Required'
 	end
-        field :run_date do
+        field :run_date, :date do
                 label "Run date"
                 help 'Required'
 	end
-        field :time_taken, :date do
+        field :time_taken do
                 label "Time taken"
                 help 'Required'
 	end
