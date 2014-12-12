@@ -256,6 +256,120 @@ class Subscription < ActiveRecord::Base
                 help 'Required'
         end
    end
+
+   list do
+ 	field :subscription_id do
+		sort_reverse false
+                label "Subscription ID"
+                read_only true
+                help ''
+        end
+        field :route  do
+                label "Route"
+                help 'Required'
+        end
+        field :run_sequence do
+                label "Run sequence"
+                help 'Required'
+        end
+        field :number  do
+                label "Number"
+                help 'Required'
+        end
+        field :run_sequence do
+                label "Run sequence"
+                help 'Required'
+        end
+        field :street do
+                label "Street"
+                help 'Required'
+        end
+        field :qty  do
+                label "Qty"
+                help 'Required'
+        end
+        field :qty_comp do
+                label "Qty comp"
+                help 'Required'
+        end
+        field :service_notes do
+                label "Service notes"
+                help 'Required'
+        end
+        field :last_name  do
+                label "Last name"
+                help 'Required'
+        end
+        field :first_name do
+                label "First name"
+                help 'Required'
+        end
+        field :phone_number do
+                label "Phone number"
+                help 'Required'
+        end
+        field :email  do
+                label "Email"
+                help 'Required'
+        end
+        field :city do
+                label "City"
+                help 'Required'
+        end
+        field :state  do
+                label "State"
+                help 'Required'
+        end
+        field :zip do
+                label "Zip"
+                help 'Required'
+        end
+        field :started_date, :date  do
+                label "Started date"
+                help 'Required'
+        end
+        field :last_letter_sent_date, :date do
+                label "Last letter sent date"
+                help 'Required'
+        end
+        field :renewal_x0020_grp  do
+                label "Renewal x0020 grp"
+                help 'Required'
+        end
+        field :sold_x0020_by do
+                label "Sold x0020 by"
+                help 'Required'
+        end
+        field :subscription_amount  do
+                label "Subscription amount"
+                help 'Required'
+        end
+        field :maint  do
+                label "Maint"
+                help 'Required'
+        end
+        field :subscription_notes  do
+                label "Subscription notes"
+                help 'Required'
+        end
+        field :renewal_due_date, :date do
+                label "Renewal due date"
+                help 'Required'
+        end
+        field :subscription_status  do
+                label "Subscription status"
+                help 'Required'
+        end
+        field :alternative_invoice  do
+                label "Alternative invoice"
+                help 'Required'
+        end
+        field :map_date, :date do
+                label "Map date"
+                help 'Required'
+        end
+   end
+
    create do
  	field :subscription_id do
                 label "Subscription ID"
