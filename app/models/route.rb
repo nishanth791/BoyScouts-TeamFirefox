@@ -61,21 +61,23 @@ rails_admin do
   
    list do
         sort_by :print_sequence
-        field :route_id do
-                label "Route ID"
-                read_only true
-                help ''
+	field :print_sequence do
+		sort_reverse false
+                label "Print sequence"
+                help 'Required'
         end
         field :route_name do
                 label "Route name"
                 help 'Required'
         end
-        field :print_sequence do
-		sort_reverse false
-                label "Print sequence"
-                help 'Required'
+        
+        field :route_id do
+                label "Route ID"
+                read_only true
+                help ''
         end
-   end
+
+    end
 
 end
 
