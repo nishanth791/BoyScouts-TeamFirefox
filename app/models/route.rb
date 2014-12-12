@@ -58,6 +58,24 @@ rails_admin do
                 help 'Required'
         end
    end
+  
+   list do
+        sort_by :print_sequence
+        field :route_id do
+                label "Route ID"
+                read_only true
+                help ''
+        end
+        field :route_name do
+                label "Route name"
+                help 'Required'
+        end
+        field :print_sequence do
+		sort_reverse false
+                label "Print sequence"
+                help 'Required'
+        end
+   end
 
 end
 
