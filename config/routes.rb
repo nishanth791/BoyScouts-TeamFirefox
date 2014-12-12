@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :subscription_payments
+  resources :subscription_payments 
 
   resources :subscriptions
 
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "routes/downloadPDFForRunSheets"	
   get "routes/generateCSVForRunSheets"	
   get "/routes/downloadCSVForRunSheets"
+  get "/welcome/credits"
   resources :runs
 
   resources :members
