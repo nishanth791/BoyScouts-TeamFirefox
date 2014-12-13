@@ -17,6 +17,40 @@ class Run < ActiveRecord::Base
   end
 
 rails_admin do
+  list do
+        field :run_id do
+		sort_reverse false
+                label "Run ID"
+                read_only true
+                help ''
+        end
+        field :route do
+                label "Route"
+                help 'Required'
+	end
+        field :member do
+                label "Member"
+                help 'Required'
+	end
+        field :run_date, :date do
+                label "Run date"
+                help 'Required'
+	end
+        field :time_taken do
+                label "Time taken"
+                help 'Required'
+	end
+        field :am_pm do
+                label "Am Pm"
+                help 'Required'
+	end
+        field :notes do
+                label "Notes"
+                help 'Required'
+	end
+   end
+  
+   
 
    update do
         field :run_id do
