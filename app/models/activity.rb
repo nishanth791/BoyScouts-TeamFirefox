@@ -13,6 +13,35 @@ class Activity < ActiveRecord::Base
         end
   end
  rails_admin do
+   list do
+        field :activity_id do
+                label "Activity ID"
+                read_only true
+                help ''
+        end
+        field :member do
+                label "Member"
+                help 'Required'
+        end
+        field :activity_date, :date do
+                label "Activity date"
+                help 'Required'
+        end
+        field :activity_ampm do
+                label "Activity ampm"
+                help 'Required'
+        end
+        field :activity_type do
+                label "Activity type"
+                help 'Required'
+        end
+        field :activity_unit_count do
+                label "Activity unit count"
+                help 'Required'
+        end
+   end
+
+  
    update do
         field :activity_id do
                 label "Activity ID"
