@@ -1,0 +1,65 @@
+Steps to Install postGreSQL locally  and deploy the application in heroku 
+
+
+Steps to installing  postGreSQL locally
+
+Creating teamFirefox database on local machine
+
+1. CREATE ROLE firefox WITH PASSWORD 'teamfirefox';
+2. ALTER ROLE firefox WITH LOGIN;
+3. ALTER ROLE firefox WITH CREATEDB;
+4. CREATE DATABASE rubyTest;
+Access using the below command :
+psql -U firefox -d rubyTest -h 127.0.0.1 -W
+
+Steps to install postgresql package 
+
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install libpq-dev
+
+Note: The database username and password should be same as that of the database.yml file. Please setup accordingly.
+
+Steps to deploy BoyScouts Application in Heroku 
+
+Step 1: Create an Heroku account
+
+Step 2: Install the heroku client using the following command
+  	wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh  
+
+Step 3: From the project directory, login to heroku using the following commands
+        heroku login
+
+Step 4: Create heroku app using the following heroku command
+        heroku create app_name
+
+Step 5: commit the code from the project directory to heroku using the following commands
+       git add --all
+       git commit -m "Final Project code" 
+       git push heroku master 
+
+Step6: The app will be deployed in heroku and can be accessed using the following link
+      http://app_name.herokuapp.com
+      heroku open will open our application in the web browser
+
+Note: The data will not be present in the database in heroku. So we need to take the local DB dump and then load to the heroku application using heroku cli commands
+
+Caution: The data from MS access provided by the customer couldn't be used directly to load the database online. Manual formating has to be done to correct the format to make it compatible with postgresql. The incompatibility is because of the comma in the data which has to be fixed manually.
+
+We are providing the db dump (db.dump) in the project folder which can be used to load the data into heroku or local database. The db.dump is the dump of the local database
+
+
+Steps to modify web interface for database:
+The web interface has been developed using rails admin gem. Please refer to the rails admin DSL to modify the views.
+
+Generating PDF's and CSV
+We have used pdfkit gem to generate the PDF. But be aware of the threading issues. So use multithreaded server like unicorn instead of webrick server which is single threaded.
+
+To start the unicorn server in local machine, execute the following command from the project directory and can be accessed at 127.0.0.1:8080 locally.
+unicorn -c unicorn.conf 
+
+Please install all the gems which are in the gem file using the following command in the project folder 
+bundle install 
+
+
+
