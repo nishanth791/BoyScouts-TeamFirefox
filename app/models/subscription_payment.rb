@@ -54,7 +54,36 @@ class SubscriptionPayment < ActiveRecord::Base
 	end
   end 
   rails_admin do
-    
+   list do
+	field :subscription_payment_id do
+		sort_reverse false
+		label "Subscription Payment ID"
+		read_only true
+		help ''
+	end
+        field :subscription do
+		label "Subscription ID"
+		help 'Required'
+	end
+	
+	field :amount_paid do
+		help ''
+	end
+	field :date_paid, :date do
+		help ''
+	end
+	field :good_till, :date do
+		help ''
+	end
+	field :paypal do
+		help ''
+	end
+	field :notes do
+		help ''
+	end
+    end
+
+ 
    update do
 	field :subscription_payment_id do
 		label "Subscription Payment ID"
