@@ -15,6 +15,43 @@ class Member < ActiveRecord::Base
         end
   end
  rails_admin do
+    list do
+        field :member_id do
+                sort_reverse false
+                label "Member ID"
+                read_only true
+                help ''
+        end
+        field :member_last_name  do
+                label "Member last name"
+                help 'Required'
+        end
+        field :member_first_name do
+                label "Member first name"
+                help 'Required'
+        end
+        field :member_cell do
+                label "Member cell"
+                help 'Required'
+        end
+        field :member_landline do
+                label "Member landline"
+                help 'Required'
+        end
+        field :member_email do
+                label "Member email"
+                help 'Required'
+        end
+        field :member_inactive do
+                label "Member inactive"
+                help 'Required'
+        end
+        field :member_vehicle do
+                label "Member vehicle"
+                help 'Required'
+        end
+   end
+
    update do
         field :member_id do
                 label "Member ID"
