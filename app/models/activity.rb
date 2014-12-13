@@ -21,9 +21,6 @@ class Activity < ActiveRecord::Base
                 help ''
         end
         field :member do
-		formatted_value do 
-			"Nilesh"
-		end
                 label "Member"
                 help 'Required'
         end
