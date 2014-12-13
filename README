@@ -34,6 +34,10 @@ Step 3: From the project directory, login to heroku using the following commands
 
 Step 4: Create heroku app using the following heroku command
         heroku create app_name
+        This will create a repository for us with the given app_name in the heroku server. we can create local repository of that using the following commands
+        $ heroku git:clone -a app_name
+	$ cd app_name
+        copy all the files from the project directory that we have provided to app_name directory and follow step 5.  
 
 Step 5: commit the code from the project directory to heroku using the following commands
        git add --all
