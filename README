@@ -42,6 +42,9 @@ Step6: The app will be deployed in heroku and can be accessed using the followin
       http://app_name.herokuapp.com
       heroku open will open our application in the web browser
 
+If there are any issues while following the instruction to deploy, there will be instruction available on the web to deploy the app using a git repository. Only two things that are required are: This project folder  and the db.dump present 
+in this folder.
+
 Note: The data will not be present in the database in heroku. So we need to take the local DB dump and then load to the heroku application using heroku cli commands
 
 Caution: The data from MS access provided by the customer couldn't be used directly to load the database online. Manual formating has to be done to correct the format to make it compatible with postgresql. The incompatibility is because of the comma in the data which has to be fixed manually.
