@@ -15,6 +15,7 @@ class Activity < ActiveRecord::Base
  rails_admin do
    list do
         field :activity_id do
+		sort_reverse false
                 label "Activity ID"
                 read_only true
                 help ''
