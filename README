@@ -70,5 +70,4 @@ unicorn -c unicorn.conf
 Please install all the gems which are in the gem file using the following command in the project folder 
 bundle install 
 
-
-
+Since deploying application in heroku is free, if the application is not accessed actively, it goes to dormant state. If the application is accessed from the dormant state for the first time, it will take some time for the application to run  
