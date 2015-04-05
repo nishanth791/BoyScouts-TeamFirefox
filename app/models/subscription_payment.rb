@@ -50,6 +50,10 @@ class SubscriptionPayment < ActiveRecord::Base
 		#to_a method on time object retrieves all different time parametres	
 		self.date_paid = "#{values[5]}-#{values[4]}-#{values[3]}T23:59:59Z"
 		self.good_till = "2015-12-31T23:59:59Z"
+		if maxId.blank?
+                    maxId = 0
+                end
+
 		self.subscription_payment_id = maxId+1
 	end
   end 
