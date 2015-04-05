@@ -6,9 +6,9 @@ gem 'rails', '4.1.6'
 # Use mysql as the database for Active Record
 #gem 'mysql2'
 #Use postgreSql as the database
-#gem 'pg', '~> 0.17.1'
+gem 'pg', '~> 0.17.1'
 #Use sqlite3 as database
-gem 'sqlite3', '~> 1.3.10' 
+#gem 'sqlite3', '~> 1.3.10' 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,13 +50,13 @@ gem 'wkhtmltopdf-heroku'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-#group :development, :test do
-	#gem 'pg', '~> 0.17.1'
-#end
+group :development, :test do
+	gem 'pg', '~> 0.17.1'
+end
 
-#group :production do
- #       gem 'pg', '~> 0.17.1'
-#end
+group :production do
+        gem 'pg', '~> 0.17.1'
+end
 
 gem 'thin'
 gem 'therubyracer'
