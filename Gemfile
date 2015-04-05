@@ -48,13 +48,13 @@ gem 'wkhtmltopdf-heroku'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development, :test do
-	gem 'pg', '~> 0.17.1'
-end
+#group :development, :test do
+	#gem 'pg', '~> 0.17.1'
+#end
 
-group :production do
-        gem 'pg', '~> 0.17.1'
-end
+#group :production do
+ #       gem 'pg', '~> 0.17.1'
+#end
 
 gem 'thin'
 gem 'therubyracer'
