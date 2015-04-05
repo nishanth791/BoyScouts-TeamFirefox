@@ -7,6 +7,8 @@ gem 'rails', '4.1.6'
 #gem 'mysql2'
 #Use postgreSql as the database
 #gem 'pg', '~> 0.17.1'
+#Use sqlite3 as database
+gem 'sqlite3', '~> 3.8.5' 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
