@@ -61,6 +61,13 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def generate_invoice_as_pdf
+      subscription_id = params[:id]
+      @subscription = Subscription.find(subscription_id)
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subscription
