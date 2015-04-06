@@ -11,6 +11,9 @@ class Member < ActiveRecord::Base
   after_initialize do
         if new_record?
                 maxId = Member.find_by_sql("SELECT member_id FROM members ORDER BY member_id DESC limit 1").first.try(:member_id)
+                if maxId.blank?
+                    maxId = 0
+                end
                 self.member_id = maxId+1
         end
   end
